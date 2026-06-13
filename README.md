@@ -1,50 +1,99 @@
-# Welcome to your Expo app 👋
+# StockControl
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Descrição
 
-## Get started
+O StockControl é um aplicativo mobile desenvolvido em React Native com Expo para auxiliar no controle simples de estoque de pequenos mercados, comércios e estabelecimentos que necessitam acompanhar seus produtos de forma prática.
 
-1. Install dependencies
+O aplicativo permite cadastrar, visualizar, editar, pesquisar e excluir produtos armazenados no estoque, mantendo as informações organizadas e acessíveis diretamente pelo dispositivo móvel.
 
-   ```bash
-   npm install
-   ```
+## Funcionalidades Implementadas
 
-2. Start the app
+### Cadastro de Produtos
 
-   ```bash
-   npx expo start
-   ```
+O usuário pode cadastrar novos produtos informando:
 
-In the output, you'll find options to open the app in a
+- Nome do produto
+- Categoria
+- Preço
+- Quantidade em estoque
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Após o cadastro, o produto é armazenado localmente no dispositivo.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### Listagem de Produtos
 
-## Get a fresh project
+Todos os produtos cadastrados são exibidos em uma lista organizada contendo:
 
-When you're ready, run:
+- Nome
+- Categoria
+- Preço
+- Quantidade disponível
+- Status do estoque
 
-```bash
-npm run reset-project
-```
+O status do estoque é calculado automaticamente:
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+- Em estoque
+- Estoque baixo
+- Sem estoque
 
-## Learn more
+### Pesquisa de Produtos
 
-To learn more about developing your project with Expo, look at the following resources:
+O aplicativo possui um campo de busca que permite localizar produtos rapidamente através do nome.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+A lista é atualizada em tempo real conforme o usuário digita.
 
-## Join the community
+### Edição de Produtos
 
-Join our community of developers creating universal apps.
+Os produtos cadastrados podem ser editados a qualquer momento.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+O usuário pode alterar:
+
+- Nome
+- Categoria
+- Preço
+- Quantidade
+
+As alterações são salvas automaticamente no armazenamento local.
+
+### Exclusão de Produtos
+
+O aplicativo permite remover produtos do estoque.
+
+Antes da exclusão, uma confirmação é exibida para evitar remoções acidentais.
+
+### Dashboard
+
+A tela principal apresenta indicadores gerais do estoque:
+
+- Total de produtos cadastrados
+- Quantidade total de itens em estoque
+- Produtos com estoque baixo
+
+Essas informações auxiliam no acompanhamento rápido da situação do estoque.
+
+## Armazenamento Local
+
+O aplicativo utiliza AsyncStorage para armazenar os dados localmente no dispositivo.
+
+Dessa forma, os produtos permanecem disponíveis mesmo após o fechamento do aplicativo.
+
+## Funcionamento Offline
+
+O StockControl foi desenvolvido com foco em utilização local, permitindo que todas as funcionalidades principais continuem operando mesmo sem conexão com a internet.
+
+O usuário pode:
+
+- Cadastrar produtos
+- Consultar produtos
+- Editar produtos
+- Excluir produtos
+- Pesquisar produtos
+
+sem depender de conexão externa.
+
+## Tecnologias Utilizadas
+
+- React Native
+- Expo
+- TypeScript
+- Expo Router
+- AsyncStorage
