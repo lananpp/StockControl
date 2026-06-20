@@ -1,5 +1,17 @@
 # StockControl
 
+## Dependências e afins
+
+npm install
+npx expo install @react-native-async-storage/async-storage
+npm audit fix --force
+npm install firebase --force
+
+
+
+
+para iniciar a aplicação : npx expo start
+
 ## Descrição
 
 O StockControl é um aplicativo mobile desenvolvido em React Native com Expo para auxiliar no controle simples de estoque de pequenos mercados, comércios e estabelecimentos que necessitam acompanhar seus produtos de forma prática.
