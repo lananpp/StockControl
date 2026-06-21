@@ -8,6 +8,7 @@ import {
   View,
 } from "react-native";
 
+import { salvarProdutoFirebase } from "../services/firebaseservice";
 import { buscarProdutos, salvarProdutos } from "../storage/produtoStorage";
 import { Produto } from "../types/Produto";
 
@@ -47,18 +48,24 @@ export default function Cadastrar() {
 
     produtos.push(novoProduto);
 
+// Salva localmente (Offline First)
     await salvarProdutos(produtos);
 
-    Alert.alert(
-      "Sucesso",
-      "Produto cadastrado com sucesso!"
-    );
+    try{
+        Alert.alert("Teste", "Entrou no Firebase");
 
-    setNome("");
-    setCategoria("");
-    setPreco("");
-    setQuantidade("");
-  };
+        await salvarProdutoFirebase(novoProduto);
+
+        Alert.alert("Firebase", "Salvou no Firebase");
+      } catch (error) {
+        Alert.alert("Erro Firebase", JSON.stringify(error));
+      }
+
+          setNome("");
+          setCategoria("");
+          setPreco("");
+          setQuantidade("");
+        };
 
   return (
     <View style={styles.container}>
